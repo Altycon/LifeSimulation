@@ -1,4 +1,9 @@
 
+//Canvas
+const LIFE_CANVAS_PARENT = document.querySelector('.life-canvas_container');
+const LIFE_CANVAS = document.getElementById('LifeCanvas');
+//const [width, height] = fixCanvas(LIFE_CANVAS,DPI);
+const LC_CTX = LIFE_CANVAS.getContext('2d'); 
 
 
 

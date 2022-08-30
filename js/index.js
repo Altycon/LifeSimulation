@@ -8,10 +8,7 @@
  */
 
 import { LifeSimulation } from "./life-simulation.js";
-import { Particle } from "./particle.js";
-import { fixCanvas, getCanvasDemensions,random} from "./utilities.js";
-
-console.log("Connected ...with random generated number", random(23423,543625436))
+import { fixCanvas, random } from "./utilities.js";
 
 // DEFINING GLOBAL VARIABLES
 const TWO_PI = Math.PI*2;

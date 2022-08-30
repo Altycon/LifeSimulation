@@ -17,11 +17,5 @@ export function fixCanvas(canvas,dpi,parent){
     canvas.setAttribute('height', new_height);
     return [new_width,new_height];
 }
-export function getCanvasDemensions(canvas,dpi){
-    if(!canvas) return;
-    if(canvas.nodeName != "CANVAS") throw new Error('1st argument must be a html canvas element.');
-    const w = +getComputedStyle(canvas).getPropertyValue('width').slice(0,-2);
-    const h = +getComputedStyle(canvas).getPropertyValue('height').slice(0,-2);
-    return {width: w*dpi, height: h*dpi};
-}
+
 export const random = (min,max,bool)=> bool ? Math.floor(Math.random()*(max-min)+min):Math.random()*(max-min)+min;
