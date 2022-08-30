@@ -3,19 +3,31 @@ import { random } from "./utilities.js";
 import { Particle } from "./particle.js";
 
 export class LifeSimulation{
-    constructor(context,width,height){
+    constructor(context,width,height,parameters){
         this.name = "Simulation of Artificail Life with mathematics";
         this.context = context;
         this.width = width;
         this.height = height;
+        this.parameters = parameters;
+        this.particles = [];
+
+        this.groups = []
+        for(let i = 0; i < this.parameters.groups.length; i++){
+            const g = this.parameters.groups[i];
+            const count = +g.count;
+            const size = +g.size;
+            const group = this.createGroup(count, g.color, size);
+            this.groups.push(group);
+        }
+        
+        this.rules = this.parameters.rules;
         this.started = true;
         this.totalParticles = 500;
-        this.particles = [];
-        this.white = this.createGroup(this.totalParticles, "white", 2);
-        this.yellow = this.createGroup(this.totalParticles, "yellow", 3);
-        this.red = this.createGroup(this.totalParticles, "red", 2);
-        this.green = this.createGroup(this.totalParticles/2, "limegreen", 3);
-        this.blue = this.createGroup(this.totalParticles, "blue", 1);
+        // this.white = this.createGroup(this.totalParticles, "white", 2);
+        // this.yellow = this.createGroup(this.totalParticles, "yellow", 3);
+        // this.red = this.createGroup(this.totalParticles, "red", 2);
+        // this.green = this.createGroup(this.totalParticles/2, "limegreen", 3);
+        // this.blue = this.createGroup(this.totalParticles, "blue", 1);
         this.counter = 0;
     }
     print(){
@@ -76,16 +88,30 @@ export class LifeSimulation{
     Start(){
         if(!this.started) return;
         
-        this.rule(this.white, this.green, -.01);
-        this.rule(this.white, this.white, 0.004);
-        this.rule(this.white, this.red, 0.05);
-        this.rule(this.yellow, this.yellow, 0.001);
-        this.rule(this.yellow, this.red, -0.01);
-        this.rule(this.red, this.red, 0.002);
-        this.rule(this.red, this.green, -0.0056);
-        this.rule(this.green, this.green, -0.003);
-        this.rule(this.red, this.blue, -0.053);
-        this.rule(this.blue, this.blue, -0.006);
+        for(let i = 0; i < this.rules.length; i++){
+            const rule = this.rules[i];
+            const group1 = +rule.group1;
+            const group2 = +rule.group2;
+            const type = +rule.type;
+            const force = +rule.force;
+            
+            this.rule(
+                this.groups[group1], 
+                this.groups[group2],
+                force*type
+                )
+        }
+
+        // this.rule(this.white, this.green, -.01);
+        // this.rule(this.white, this.white, 0.004);
+        // this.rule(this.white, this.red, 0.05);
+        // this.rule(this.yellow, this.yellow, 0.001);
+        // this.rule(this.yellow, this.red, -0.01);
+        // this.rule(this.red, this.red, 0.002);
+        // this.rule(this.red, this.green, -0.0056);
+        // this.rule(this.green, this.green, -0.003);
+        // this.rule(this.red, this.blue, -0.053);
+        // this.rule(this.blue, this.blue, -0.006);
         
         // render
         this.context.clearRect(-this.width*0.5, -this.height*0.5, this.width,this.height);

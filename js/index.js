@@ -30,6 +30,7 @@ const [width, height] = fixCanvas(LIFE_CANVAS,DPI);
 const LC_CTX = LIFE_CANVAS.getContext('2d'); 
 LC_CTX.translate(width*0.5, height*0.5);
 
+let parameters;
 let simulation;
 let lifeInterval;
 let animating = false;
@@ -75,7 +76,6 @@ function getParameters(){
     
     const GROUP_ELEMENTS = [...document.querySelectorAll('.group')];
     const RULE_ELEMENTS = [...document.querySelectorAll('.rule')];
-    console.log(RULE_ELEMENTS)
 
     for(let i = 0; i < GROUP_ELEMENTS.length; i++){
         const group = GROUP_ELEMENTS[i];
@@ -94,10 +94,21 @@ function getParameters(){
 
     for(let j = 0; j < RULE_ELEMENTS.length; j++){
         const rule = RULE_ELEMENTS[j];
-        const group1_value = rule.querySelector('.js-rule-group1_select')
+        const group1_value = rule.querySelector('.js-rule-group1_select').value;
+        const type_value = rule.querySelector('.js-rule-type_select').value;
+        const group2_value = rule.querySelector('.js-rule-group2_select').value;
+        const force_value = rule.querySelector('.js-rule-force_input').value;
+
+        rules.push({
+            id: `Rule${j+1}`,
+            group1: group1_value,
+            group2: group2_value,
+            type: type_value,
+            force: force_value
+        })
         
     }
-
+    return {groups,rules}
     
 }
 
@@ -117,7 +128,8 @@ function resetAnimation(ev){
     cancelAnimationFrame(lifeInterval);
     lifeInterval = null;
     animating = false;
-    simulation = new LifeSimulation(LC_CTX, width,height);
+    parameters = getParameters();
+    simulation = new LifeSimulation(LC_CTX, width,height,parameters);
     LC_CTX.clearRect(-width*0.5, -height*0.5, width, height);
 }
 function stopAnimation(ev){
@@ -129,7 +141,8 @@ function stopAnimation(ev){
 function startAnimation(ev){
     if(animating) return;
     ev.preventDefault();
-    //simulation = new LifeSimulation(LC_CTX, width,height);
+    //parameters = getParameters();
+    //simulation = new LifeSimulation(LC_CTX, width,height,parameters);
     animateLife();
 
     STOP_ANIMATION_BUTTON.addEventListener('click', stopAnimation);
@@ -139,13 +152,15 @@ function startAnimation(ev){
 
 
 const loadUp = ()=>{
-    simulation = new LifeSimulation(LC_CTX,width,height);
     connectInputAndOutputDisplays();
+    parameters = getParameters();
+    
+    simulation = new LifeSimulation(LC_CTX,width,height,parameters);
     START_ANIMATION_BUTTON.addEventListener('click', startAnimation);
     RESET_ANIMATION_BUTTON.addEventListener('click', resetAnimation)
 }
 const init = ()=>{
-    getParameters();
+    
 }
 
 document.addEventListener('DOMContentLoaded', loadUp);
