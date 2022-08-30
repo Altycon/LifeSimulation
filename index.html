@@ -13,13 +13,12 @@
     <header class="primary_header flex-row">
         <h1>Artificial Life</h1>
 
-        <div class="animation-button_container">
+        <div class="animation-button_container flex-row">
             <button type="button" class="start-animation_button js-start-animation_button">Start</button>
             <button type="button" class="stop-animation_button js-stop-animation_button">Stop</button>
             <button type="button" class="reset-animation_button js-reset-animation_button">Reset</button>
         </div>
-        
-        <a href="https://www.youtube.com/watch?v=0Kx4Y9TVMGg&t=704s" target="_blank">Source</a>
+
     </header>
     <main>
         <section class="parameters_container flex-column">
@@ -28,19 +27,13 @@
            <!--     GROUPS  -->
            <section class="groups flex-column">
             <h3>Groups</h3>
-            <div class="group-button_container flex-row">
-                <a class="group_link noselect" href="#Group1">Group 1</a>
-                <a class="group_link noselect" href="#Group2">Group 2</a>
-                <a class="group_link noselect" href="#Group3">Group 3</a>
-                <a class="group_link noselect" href="#Group4">Group 4</a>
-                <a class="group_link noselect" href="#Group5">Group 5</a>
-            </div>
+           
             <div class="group_container flex-row">
                 <article id="Group1" class="group flex-column">
                     <h4>Group 1</h4>
                     <div class="group-input_container flex-row">
                         <label for="GroupColorInput1">Color</label>
-                        <input type="color" id="GroupColorInput1" class="group-color_select" value="#32cd32" autocomplete="off">
+                        <input type="color" id="GroupColorInput1" class="group-color_select js-group-color_select" value="#32cd32" autocomplete="off">
                     </div>
                     <div class="group-input_container flex-column">
                         <label for="GroupCountInput1">Number of particles:&nbsp;<span class="group-count_output js-group-count_output">100</span></label>
@@ -56,7 +49,7 @@
                     <h4>Group 2</h4>
                     <div class="group-input_container flex-row">
                         <label for="GroupColorInput1">Color</label>
-                        <input type="color" id="GroupColorInput1" class="group-color_select" value="#ffff00" autocomplete="off">
+                        <input type="color" id="GroupColorInput1" class="group-color_select js-group-color_select" value="#ffff00" autocomplete="off">
                     </div>
                     <div class="group-input_container flex-column">
                         <label for="GroupCountInput1">Number of particles:&nbsp;<span class="group-count_output js-group-count_output">100</span></label>
@@ -72,7 +65,7 @@
                     <h4>Group 3</h4>
                     <div class="group-input_container flex-row">
                         <label for="GroupColorInput1">Color</label>
-                        <input type="color" id="GroupColorInput1" class="group-color_select" value="#ffffff" autocomplete="off">
+                        <input type="color" id="GroupColorInput1" class="group-color_select js-group-color_select" value="#ffffff" autocomplete="off">
                     </div>
                     <div class="group-input_container flex-column">
                         <label for="GroupCountInput1">Number of particles:&nbsp;<span class="group-count_output js-group-count_output">100</span></label>
@@ -88,7 +81,7 @@
                     <h4>Group 4</h4>
                     <div class="group-input_container flex-row">
                         <label for="GroupColorInput1">Color</label>
-                        <input type="color" id="GroupColorInput1" class="group-color_select" value="#0000ff" autocomplete="off">
+                        <input type="color" id="GroupColorInput1" class="group-color_select js-group-color_select" value="#0000ff" autocomplete="off">
                     </div>
                     <div class="group-input_container flex-column">
                         <label for="GroupCountInput1">Number of particles:&nbsp;<span class="group-count_output js-group-count_output">300</span></label>
@@ -104,7 +97,7 @@
                     <h4>Group 5</h4>
                     <div class="group-input_container flex-row">
                         <label for="GroupColorInput1">Color</label>
-                        <input type="color" id="GroupColorInput1" class="group-color_select" value="#ff0000" autocomplete="off">
+                        <input type="color" id="GroupColorInput1" class="group-color_select js-group-color_select" value="#ff0000" autocomplete="off">
                     </div>
                     <div class="group-input_container flex-column">
                         <label for="GroupCountInput1">Number of particles:&nbsp;<span class="group-count_output js-group-count_output">300</span></label>
@@ -125,18 +118,18 @@
                     <article class="rule flex-column">
                         <h4>Rule 1</h4>
                         <div class="rule-group-select_container flex-row">
-                            <select name="" id="" class="rule-group1_select" autocomplete="off">
+                            <select name="" id="" class="rule-group1_select js-rule-group1_select" autocomplete="off">
                                 <option value="0">Group 1</option>
                                 <option value="1">Group 2</option>
                                 <option value="2">Group 3</option>
                                 <option value="3" selected>Group 4</option>
                                 <option value="4">Group 5</option>
                             </select>
-                            <select name="" id="" class="rule-type_select" autocomplete="off">
+                            <select name="" id="" class="rule-type_select js-rule-type_select" autocomplete="off">
                                 <option value="1">Repulse</option>
                                 <option value="-1" selected>Attract</option>
                             </select>
-                            <select name="" id="" class="rule-group2_select" autocomplete="off">
+                            <select name="" id="" class="rule-group2_select js-rule-group2_select" autocomplete="off">
                                 <option value="0" selected>Group 1</option>
                                 <option value="1">Group 2</option>
                                 <option value="2">Group 3</option>
@@ -144,7 +137,7 @@
                                 <option value="4">Group 5</option>
                             </select>
                         </div>
-                        <div class="rule-force-input_container flex-column">
+                        <div class="rule-force-input_container js-rule-force-input_container flex-column">
                             <label for="RuleForceInput1">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.01</span></label>
                             <input type="range" id="RuleForceInput1" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.01" step="0.001" autocomplete="off">
                         </div>
@@ -172,9 +165,9 @@
                                 <option value="4">Group 5</option>
                             </select>
                         </div>
-                        <div class="rule-force-input_container flex-column">
-                            <label for="RuleForceInput1">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.004</span></label>
-                            <input type="range" id="RuleForceInput1" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.004" step="0.001" autocomplete="off">
+                        <div class="rule-force-input_container js-rule-force-input_container flex-column">
+                            <label for="RuleForceInput2">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.004</span></label>
+                            <input type="range" id="RuleForceInput2" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.004" step="0.001" autocomplete="off">
                         </div>
                     </article>
 
@@ -200,9 +193,9 @@
                                 <option value="4" selected>Group 5</option>
                             </select>
                         </div>
-                        <div class="rule-force-input_container flex-column">
-                            <label for="RuleForceInput1">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.05</span></label>
-                            <input type="range" id="RuleForceInput1" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.05" step="0.001" autocomplete="off">
+                        <div class="rule-force-input_container js-rule-force-input_container flex-column">
+                            <label for="RuleForceInput3">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.05</span></label>
+                            <input type="range" id="RuleForceInput3" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.05" step="0.001" autocomplete="off">
                         </div>
                     </article>
 
@@ -228,9 +221,9 @@
                                 <option value="4">Group 5</option>
                             </select>
                         </div>
-                        <div class="rule-force-input_container flex-column">
-                            <label for="RuleForceInput1">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.001</span></label>
-                            <input type="range" id="RuleForceInput1" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.001" step="0.001" autocomplete="off">
+                        <div class="rule-force-input_container js-rule-force-input_container flex-column">
+                            <label for="RuleForceInput4">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.001</span></label>
+                            <input type="range" id="RuleForceInput4" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.001" step="0.001" autocomplete="off">
                         </div>
                     </article>
 
@@ -256,9 +249,9 @@
                                 <option value="4" selected>Group 5</option>
                             </select>
                         </div>
-                        <div class="rule-force-input_container flex-column">
-                            <label for="RuleForceInput1">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.01</span></label>
-                            <input type="range" id="RuleForceInput1" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.01" step="0.001" autocomplete="off">
+                        <div class="rule-force-input_container js-rule-force-input_container flex-column">
+                            <label for="RuleForceInput5">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.01</span></label>
+                            <input type="range" id="RuleForceInput5" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.01" step="0.001" autocomplete="off">
                         </div>
                     </article>
 
@@ -284,7 +277,7 @@
                                 <option value="4" selected>Group 5</option>
                             </select>
                         </div>
-                        <div class="rule-force-input_container flex-column">
+                        <div class="rule-force-input_container js-rule-force-input_container flex-column">
                             <label for="RuleForceInput1">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.002</span></label>
                             <input type="range" id="RuleForceInput1" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.002" step="0.001" autocomplete="off">
                         </div>
@@ -312,7 +305,7 @@
                                 <option value="4">Group 5</option>
                             </select>
                         </div>
-                        <div class="rule-force-input_container flex-column">
+                        <div class="rule-force-input_container js-rule-force-input_container flex-column">
                             <label for="RuleForceInput1">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.0056</span></label>
                             <input type="range" id="RuleForceInput1" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.0056" step="0.001" autocomplete="off">
                         </div>
@@ -340,7 +333,7 @@
                                 <option value="4">Group 5</option>
                             </select>
                         </div>
-                        <div class="rule-force-input_container flex-column">
+                        <div class="rule-force-input_container js-rule-force-input_container flex-column">
                             <label for="RuleForceInput1">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.003</span></label>
                             <input type="range" id="RuleForceInput1" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.003" step="0.001" autocomplete="off">
                         </div>
@@ -368,7 +361,7 @@
                                 <option value="4">Group 5</option>
                             </select>
                         </div>
-                        <div class="rule-force-input_container flex-column">
+                        <div class="rule-force-input_container js-rule-force-input_container flex-column">
                             <label for="RuleForceInput1">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.053</span></label>
                             <input type="range" id="RuleForceInput1" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.053" step="0.001" autocomplete="off">
                         </div>
@@ -396,7 +389,7 @@
                                 <option value="4">Group 5</option>
                             </select>
                         </div>
-                        <div class="rule-force-input_container flex-column">
+                        <div class="rule-force-input_container js-rule-force-input_container flex-column">
                             <label for="RuleForceInput1">Force:&nbsp;<span class="rule-force_output js-rule-force_output">0.006</span></label>
                             <input type="range" id="RuleForceInput1" class="rule-force_input js-rule-force_input" min="0" max="0.1" value="0.006" step="0.001" autocomplete="off">
                         </div>
@@ -410,6 +403,7 @@
     </main>
     <footer>
         <p>&copy;&nbsp;2022 Clayton McDaniel</p>
+        <a href="https://www.youtube.com/watch?v=0Kx4Y9TVMGg&t=704s" target="_blank">Source</a>
     </footer>
 </body>
 </html>

@@ -9,7 +9,7 @@ export class LifeSimulation{
         this.width = width;
         this.height = height;
         this.started = true;
-        this.totalParticles = 300;
+        this.totalParticles = 500;
         this.particles = [];
         this.white = this.createGroup(this.totalParticles, "white", 2);
         this.yellow = this.createGroup(this.totalParticles, "yellow", 3);
